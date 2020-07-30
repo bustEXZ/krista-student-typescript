@@ -1,21 +1,17 @@
-import React, {Component} from 'react';
+import React, {FC} from 'react';
 
 export interface SearchProps {
     value: string;
     onChangeHandler: (value: string) => void;
 }
 
-class Search extends Component<SearchProps> {
-    render() {
-        return (
-            <input
-                onChange={event => this.props.onChangeHandler(event.target.value)}
-                value={this.props.value}
-                type="text"
-                placeholder="Поиск"
-            />
-        );
-    }
-}
+const Search: FC<SearchProps> = ({ value, onChangeHandler }) => (
+    <input
+        onChange={event => onChangeHandler(event.target.value)}
+        value={value}
+        type="text"
+        placeholder="Поиск"
+    />
+);
 
 export default Search;

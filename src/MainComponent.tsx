@@ -1,67 +1,46 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import Search from "./Search";
 
-
-export interface MainComponentState {
-    searchValue: string;
-    counter: number;
-    list: string[];
-}
-
-class MainComponent extends Component<{}, MainComponentState> {
-    state: MainComponentState = {
-        searchValue: "",
-        counter: 0,
-        list: ["Hello", "from", "React"]
+const MainComponent = () => {
+    const [searchValue, setSearch] = useState<string>("")
+    const [counter, setCounter] = useState<number>(0)
+    const [list, setList] = useState<string[]>(["Hello", "from", "React"])
+    const onChangeSearch = (value: string) => {
+        setSearch(value);
     };
 
-    onChangeSearch = (value: string) => {
-        this.setState({
-            searchValue: value
-        })
+    const increaseValue = () => {
+        setCounter(counter + 1);
     };
 
-    increaseValue = () => {
-        this.setState({
-            counter: this.state.counter + 1
-        });
+    const decreaseValue = () => {
+        setCounter(counter - 1);
     };
-
-    decreaseValue = () => {
-        this.setState({
-            counter: this.state.counter - 1
-        });
-    };
-
-    render() {
-        const { counter, searchValue } = this.state;
-
-        return (
+    return (
+        <div>
+            <Search value={searchValue} onChangeHandler={onChangeSearch}/>
             <div>
-                <Search value={searchValue} onChangeHandler={this.onChangeSearch} />
+                Значение из поиска: {searchValue}
+            </div>
+            <hr/>
+            <div>
+                Hello from React (MainComponent.tsx)
+            </div>
+            <hr/>
+            <div>
+                <button onClick={increaseValue}>+1</button>
+                <button onClick={decreaseValue}>-1</button>
                 <div>
-                    Значение из поиска: {searchValue}
-                </div>
-                <hr />
-                <div>
-                    Hello from React (MainComponent.tsx)
-                </div>
-                <hr />
-                <div>
-                    <button onClick={this.increaseValue}>+1</button>
-                    <button onClick={this.decreaseValue}>-1</button>
-                    <div>
-                        Значение: {this.state.counter}
-                    </div>
-                </div>
-                <hr />
-                <div>
-                    Вывод списка:
-                    {this.state.list.map((element, index) => <li key={index}>{element}</li>)}
+                    Значение: {counter}
                 </div>
             </div>
-        );
-    }
+            <hr/>
+            <div>
+                Вывод списка:
+                {list.map((element, index) => <li key={index}>{element}</li>)}
+            </div>
+        </div>
+    );
 }
 
 export default MainComponent;
