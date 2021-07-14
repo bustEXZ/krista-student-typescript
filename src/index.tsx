@@ -4,6 +4,6 @@ import MainComponent from "./MainComponent";
 
 render(<MainComponent />, document.querySelector("#root"));
 
-if ((module as any).hot) {
-    (module as any).hot.accept()
+if (module.hot) {
+    module.hot.accept()
 }
