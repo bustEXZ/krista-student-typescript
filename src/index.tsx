@@ -1,9 +1,7 @@
-import React from "react";
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import MainComponent from "./MainComponent";
 
-render(<MainComponent />, document.querySelector("#root"));
+const root = createRoot(document.querySelector("#root")!)
 
-if (module.hot) {
-    module.hot.accept()
-}
+root.render(<MainComponent />)
+
