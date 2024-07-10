@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "target": "esnext",
+    "target": "ESNext",
     "declaration": true,
-    "module": "commonjs",
+    "module": "NodeNext",
     "outDir": "./lib",
     "strict": true,
     "allowSyntheticDefaultImports": true,
