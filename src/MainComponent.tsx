@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Search from "./Search";
+import Search from "./Search.js";
 
 const MainComponent = () => {
     const [searchValue, setSearch] = useState<string>("")

@@ -2,3 +2,5 @@ node_modules
 dist
 .idea
 .cache
+# Million Lint
+.million
